@@ -1,5 +1,5 @@
 import Reflux from 'reflux';
-import timeActions from '../actions/timeActions';
+import TimeActions from '../actions/timeActions';
 
 var TimeStore = Reflux.createStore({
     listenables: timeActions,
