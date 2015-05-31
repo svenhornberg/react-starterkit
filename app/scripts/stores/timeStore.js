@@ -1,15 +1,14 @@
 import Reflux from 'reflux';
-import TimeActions from '../actions/timeActions';
+import timeActions from '../actions/timeActions';
 
 var TimeStore = Reflux.createStore({
+    listenables: timeActions,
 
     init() {
         this.time = [];
-
-        this.listenTo(TimeActions.currenttime, this.currenttime);
     },
 
-    currenttime() {
+    onCurrenttime() {
         this.time = '13:47';
     }
 });
