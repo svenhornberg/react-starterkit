@@ -9,7 +9,9 @@ var TimeStore = Reflux.createStore({
     },
 
     onCurrenttime() {
-        this.time = '13:47';
+      this.trigger({
+        time : '13:47'
+      });
     }
 });
 
