@@ -2,7 +2,7 @@ import Reflux from 'reflux';
 import TimeActions from '../actions/timeActions';
 
 var TimeStore = Reflux.createStore({
-    listenables: timeActions,
+    listenables: TimeActions,
 
     init() {
         this.time = '';
