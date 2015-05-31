@@ -14,14 +14,15 @@ class Home extends React.Component {
     this.state = {
       items : [],
       loading: false,
-      time : ''
+      time : ''  //edit1
     };
   }
 
   componentDidMount() {
-    this.unsubscribe = [
-      ItemStore.listen(this.onStatusChange.bind(this))]
 
+    this.unsubscribe = ItemStore.listen(this.onStatusChange.bind(this));
+    this.unsubscribe = TimeStore.listen(this.onStatusChange.bind(this));
+    
     ItemActions.loadItems();
     TimeActions.currenttime();
   }
