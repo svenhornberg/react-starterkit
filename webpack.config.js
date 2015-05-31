@@ -1,6 +1,6 @@
 module.exports.getConfig = function(type) {
 
-  var isDev = type === 'development';
+  var isDev = true;
 
   var config = {
     entry: './app/scripts/main.js',
@@ -19,7 +19,7 @@ module.exports.getConfig = function(type) {
   };
 
   if(isDev){
-    config.devtool = 'eval';
+    config.devtool = 'inline-source-map';
   }
 
   return config;

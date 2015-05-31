@@ -3,8 +3,12 @@ import ItemList from '../components/itemList.jsx';
 import ItemStore from '../stores/itemStore';
 import ItemActions from '../actions/itemActions';
 
+import Timer from '../components/timer.jsx';
+import TimeStore from '../stores/timeStore';
+import TimeActions from '../actions/timeActions';
+
 class Home extends React.Component {
-  
+
   constructor(props){
     super(props);
     this.state = {
@@ -14,8 +18,11 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    this.unsubscribe = ItemStore.listen(this.onStatusChange.bind(this));
+    this.unsubscribe = [
+      ItemStore.listen(this.onStatusChange.bind(this))]
+
     ItemActions.loadItems();
+    TimeActions.currenttime();
   }
 
   componentWillUnmount() {
@@ -32,6 +39,7 @@ class Home extends React.Component {
       <div>
         <h1>Home Area</h1>
         <ItemList { ...this.state } />
+        <Timer { ...this.state } />
       </div>
     );
   }
