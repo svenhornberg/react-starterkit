@@ -5,7 +5,7 @@ var TimeStore = Reflux.createStore({
     listenables: timeActions,
 
     init() {
-        this.time = [];
+        this.time = '';
     },
 
     onCurrenttime() {
